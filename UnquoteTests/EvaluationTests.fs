@@ -6,7 +6,7 @@ open System
 
 let inline testEval expr expected =
     let result = expr |> eval
-    result =? expected
+    result =! expected
 
 [<Fact>]
 let ``Value`` () =
@@ -578,7 +578,7 @@ let ``untyped synthetic evaluation`` () =
 //    else
 //        None
 
-#if SILVERLIGHT //VERIFIED
+#if PORTABLE
 #else
 
 [<Fact>]

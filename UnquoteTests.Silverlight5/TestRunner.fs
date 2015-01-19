@@ -27,8 +27,8 @@ type TestRunner() =
             for mi in methods do
                 let attrs = mi.GetCustomAttributes(false)
                 if attrs |> Array.exists isFact then
-                    printf "running test `%s`..." mi.Name
+                    System.Console.Write("running test `{0}`...", mi.Name)
                     mi.Invoke(null,null) |> ignore
-                    printfn "passed"
+                    System.Console.WriteLine("passed")
                     count <- count + 1
-        printfn "All %i tests passed." count
+        System.Console.WriteLine("All {0} tests passed.", count)
